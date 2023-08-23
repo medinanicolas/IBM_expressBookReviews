@@ -2,7 +2,6 @@ const axios = require('axios').default;
 // Harcoded url constant
 HOST = 'http://0.0.0.0:5000'
 
-
 const getAllBooks = async(url)=>{
     console.log("Doing async/await request", Date.now().toString())
     const outcome = axios.get(url);
