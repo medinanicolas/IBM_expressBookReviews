@@ -18,7 +18,7 @@ Link to the [course](https://www.coursera.org/learn/developing-backend-apps-with
 - Task 12: Search by Author.
 - Task 13: Search by title.
 
-See the [screenshots]((final_project/screenshots)).
+See the [screenshots](final_project/screenshots).
 
 # Installation
 ```
