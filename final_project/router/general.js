@@ -19,7 +19,7 @@ public_users.post("/register", (req,res) => {
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
   //Write your code here
-  return res.status(200).json(JSON.stringify(books, null, 4));
+  return res.status(200).json(books);
 });
 
 // Get book details based on ISBN
@@ -30,7 +30,7 @@ public_users.get('/isbn/:isbn',function (req, res) {
   }
   isbn_book = books[req.params.isbn];
   return isbn_book 
-    ? res.status(200).json(JSON.stringify(isbn_book)) 
+    ? res.status(200).json(isbn_book)
     : res.status(404).json({message: `Can not found books with ISBN ${req.params.isbn}.`});
  });
   
@@ -39,7 +39,7 @@ public_users.get('/author/:author',function (req, res) {
   //Write your code here
   author_books = Object.values(books).filter(e => e.author.toLowerCase() === req.params.author.toLowerCase());
   return author_books.length 
-    ? res.status(200).json(JSON.stringify(author_books)) 
+    ? res.status(200).json(author_books)
     : res.status(400).json({message: `Can not found books with author ${req.params.author}.`});
 });
 
@@ -48,7 +48,7 @@ public_users.get('/title/:title',function (req, res) {
   //Write your code here
   title_books = Object.values(books).filter(e => e.title.toLowerCase() === req.params.title.toLowerCase());
   return title_books.length 
-    ? res.status(200).json(JSON.stringify(title_books)) 
+    ? res.status(200).json(title_books)
     : res.status(404).json({message: `Can not found books with title ${req.params.title}.`});
 
 });
@@ -64,7 +64,7 @@ public_users.get('/review/:isbn',function (req, res) {
     return res.status(404).json({message: `Can not found books with ISBN ${req.params.isbn}.`});
   }
   return Object.keys(isbn_book["reviews"]).length 
-    ? res.status(200).json(JSON.stringify(isbn_book["reviews"])) 
+    ? res.status(200).json(isbn_book["reviews"])
     : res.status(404).json({message: `The book with ISBN ${req.params.isbn} has no reviews.`});
 });
 
